@@ -8,7 +8,7 @@ import CommentList from '@/components/CommentList';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { toast } from 'sonner';
 import * as XLSX from 'xlsx';
-import { ArrowLeft, Github } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,8 +21,8 @@ export default function Home() {
     try {
       const response = await fetchComments(url, limit);
       setData(response);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch comments');
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Failed to fetch comments');
     } finally {
       setIsLoading(false);
     }
