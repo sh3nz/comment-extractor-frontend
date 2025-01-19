@@ -22,8 +22,6 @@
 //   }
 
 
-
-# src/types/index.ts
 export interface Reply {
   author: string;
   text: string;
