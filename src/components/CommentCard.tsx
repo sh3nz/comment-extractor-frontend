@@ -130,11 +130,19 @@ export default function CommentCard({
 }: CommentCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // const handleCopy = async (content: string) => {
+  //   try {
+  //     await navigator.clipboard.writeText(content);
+  //     toast.success('Comment copied to clipboard!');
+  //   } catch (err) {
+  //     toast.error('Failed to copy comment');
+  //   }
+  // };
   const handleCopy = async (content: string) => {
     try {
       await navigator.clipboard.writeText(content);
       toast.success('Comment copied to clipboard!');
-    } catch (err) {
+    } catch (_error) {
       toast.error('Failed to copy comment');
     }
   };
