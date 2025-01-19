@@ -314,7 +314,7 @@ export default function CommentList({
           >
             <MessageCircle size={24} className="mx-auto text-gray-400 mb-3" />
             <p className="text-gray-600">
-              Comments are collapsed. Click "Expand All" to view them.
+              Comments are collapsed. Click &quot;Expand All&quot; to view them.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
