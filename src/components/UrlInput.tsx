@@ -1,4 +1,3 @@
-
 // 'use client';
 
 // import { useState } from 'react';
@@ -31,7 +30,6 @@
 
 //   return (
 //     <form onSubmit={handleSubmit} className="space-y-8">
-//       {/* URL Input Group */}
 //       <div className="space-y-3">
 //         <label htmlFor="url" className="block text-sm font-medium text-gray-700">
 //           Reddit Post URL
@@ -57,7 +55,6 @@
 //         </div>
 //       </div>
 
-//       {/* Comments Limit Selection */}
 //       <div className="space-y-3">
 //         <label htmlFor="limit" className="block text-sm font-medium text-gray-700">
 //           Number of Comments
@@ -80,14 +77,16 @@
 //         </select>
 //       </div>
 
-//       {/* Submit Button */}
 //       <button
 //         type="submit"
 //         disabled={isLoading}
 //         className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-4 rounded-xl hover:from-blue-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-medium flex items-center justify-center gap-2 group"
 //       >
 //         {isLoading ? (
-//           <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+//           <>
+//             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+//             <span>Fetching Comments...</span>
+//           </>
 //         ) : (
 //           <>
 //             <span>Fetch Comments</span>
@@ -100,7 +99,7 @@
 // }
 
 
-
+# src/components/UrlInput.tsx
 'use client';
 
 import { useState } from 'react';
@@ -133,6 +132,7 @@ export default function UrlInput({ onSubmit, isLoading }: UrlInputProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      {/* URL Input Group */}
       <div className="space-y-3">
         <label htmlFor="url" className="block text-sm font-medium text-gray-700">
           Reddit Post URL
@@ -158,6 +158,7 @@ export default function UrlInput({ onSubmit, isLoading }: UrlInputProps) {
         </div>
       </div>
 
+      {/* Comments Limit Selection */}
       <div className="space-y-3">
         <label htmlFor="limit" className="block text-sm font-medium text-gray-700">
           Number of Comments
@@ -177,9 +178,16 @@ export default function UrlInput({ onSubmit, isLoading }: UrlInputProps) {
           <option value={25}>25 comments</option>
           <option value={50}>50 comments</option>
           <option value={100}>100 comments</option>
+          <option value={-1}>All comments</option>
         </select>
+        {limit === -1 && (
+          <p className="text-sm text-amber-600">
+            Note: Fetching all comments might take longer for posts with many comments
+          </p>
+        )}
       </div>
 
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={isLoading}
