@@ -76,7 +76,6 @@ export default function UrlInput({ onSubmit, isLoading }: UrlInputProps) {
           <option value={25}>25 comments</option>
           <option value={50}>50 comments</option>
           <option value={100}>100 comments</option>
-          <option value={-1}>All comments</option>
         </select>
         {limit === -1 && (
           <p className="text-sm text-amber-600">
