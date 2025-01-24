@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      lexend: ['Lexend', 'sans-serif'],
+    },
   },
   plugins: [],
 }

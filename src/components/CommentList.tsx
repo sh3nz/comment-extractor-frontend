@@ -229,38 +229,68 @@ export default function CommentList({
   });
 
   return (
+    <div className="bg-white p-4 rounded-xl border border-gray-700 font-lexend">
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="space-y-6"
     >
       {/* Original Post Card */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <span className="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
-              Original Post
-            </span>
-            <div className="flex items-center gap-2 text-gray-600">
-              <MessageCircle size={18} className="text-gray-400" />
-              <span>{comments.length} comments</span>
-            </div>
-          </div>
-          
-          <h1 className="text-2xl font-bold text-gray-900 leading-tight mb-3">
+      
+      <div className="bg-white  overflow-auto">
+      <div className="p-6 bg-white  rounded-xl  space-y-6">
+  {/* Header Section */}
+  <div className="flex items-center justify-between">
+    <span className="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+      Original Post
+    </span>
+    <div className="flex items-center gap-2 text-gray-600">
+      <MessageCircle size={18} className="text-gray-400" />
+      <span className="text-sm">{comments.length} comments</span>
+    </div>
+  </div>
+
+  {/* Post Title */}
+  <h1 className="text-2xl font-bold text-gray-900 leading-tight mb-3">
             {postTitle}
           </h1>
-          
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <User size={16} className="text-gray-400" />
-            <span>Posted by {postAuthor}</span>
-          </div>
-        </div>
+
+  {/* Author Information */}
+  <div className="flex items-center gap-2 text-sm text-gray-600">
+    <User size={16} className="text-gray-400" />
+    <span className="font-medium">Posted by {postAuthor}</span>
+  </div>
+
+  {/* Action Buttons */}
+  <div className="flex gap-4">
+  <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={onDownload}
+      className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg  transition-all"
+    >
+      <Download size={16} />
+      <span className="text-gray-800"> Excel <span className="text-gray-500">|</span> JSON</span>
+    </motion.button>
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={onCopy}
+      className="inline-flex items-center justify-center gap-2 px-4 py-1.5 text-sm font-medium text-gray-600 border  rounded-lg  transition-all"
+    >
+      <Copy size={16} />
+      Copy 
+    </motion.button>
+
+    
+  </div>
+</div>
+
       </div>
 
       {/* Actions Grid */}
-      <div className="grid grid-cols-2 gap-3">
-        {/* Top Row */}
+      {/* <div className="grid grid-cols-2 gap-3">
+        
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -281,27 +311,8 @@ export default function CommentList({
           Sort {sortOrder === 'desc' ? 'Highest' : 'Lowest'}
         </motion.button>
 
-        {/* Bottom Row */}
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={onCopy}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors"
-        >
-          <Copy size={16} />
-          Copy All
-        </motion.button>
-
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={onDownload}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors"
-        >
-          <Download size={16} />
-          Download Excel
-        </motion.button>
-      </div>
+        
+      </div> */}
 
       {/* Comments Section */}
       <AnimatePresence mode="wait">
@@ -310,7 +321,7 @@ export default function CommentList({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="text-center py-12 bg-white rounded-xl border border-gray-200"
+            className="text-center py-12 bg-white rounded-lg "
           >
             <MessageCircle size={24} className="mx-auto text-gray-400 mb-3" />
             <p className="text-gray-600">
@@ -326,6 +337,7 @@ export default function CommentList({
             </motion.button>
           </motion.div>
         ) : (
+          
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -339,15 +351,19 @@ export default function CommentList({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
+                
                 <CommentCard
                   author={comment.author}
                   text={comment.text}
                   upvotes={comment.upvotes}
                   reply={comment.reply}
                 />
+                
               </motion.div>
+              
             ))}
           </motion.div>
+          
         )}
       </AnimatePresence>
 
@@ -363,5 +379,6 @@ export default function CommentList({
         </motion.div>
       )}
     </motion.div>
+    </div>
   );
 }
