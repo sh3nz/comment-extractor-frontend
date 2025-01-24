@@ -157,8 +157,10 @@ export default function CommentCard({
   onMouseLeave={() => setIsHovered(false)}
 >
   {/* Main Comment Section */}
-  <div className="p-4 space-y-4 font-lexend   transition-all duration-300">
+
   <div className="border-l-4 border-black pl-4">
+  <div className=" space-y-4 font-lexend   transition-all duration-300">
+  
     {/* Header */}
     <div className="flex items-center justify-between mb-4">
       {/* Author Info */}
@@ -179,7 +181,7 @@ export default function CommentCard({
       <p className="whitespace-pre-wrap break-words">{text}</p>
     </div>
   </div>
-</div>
+
 
 
   {/* Reply Section */}
@@ -208,6 +210,7 @@ export default function CommentCard({
       </div>
     </div>
   )}
+  </div>
 </div>
 
   );
