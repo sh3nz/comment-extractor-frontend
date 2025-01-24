@@ -164,9 +164,9 @@ export default function CommentCard({
     {/* Header */}
     <div className="flex items-center justify-between mb-4">
       {/* Author Info */}
-      <div className="flex items-center gap-4 p-3  rounded-lg shadow-sm hover:bg-gray-100 bg-[#F8FAFC] hover:shadow-md transition-all duration-300">
-        <span className="text-lg font-semibold text-gray-900">{sequence}.</span>
-        <span className="text-lg font-medium text-gray-800 ">{author}</span>
+      <div className="flex items-center gap-4   rounded-lg   transition-all duration-300">
+        <span className="text-sm font-medium text-gray-900">{sequence}.</span>
+        <span className="text-sm font-bold text-gray-800 ">{author}</span>
       </div>
 
       {/* Upvotes */}
@@ -198,7 +198,7 @@ export default function CommentCard({
   </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-gray-800">{reply.author}</span>
+            <span className="font-semibold text-gray-800 text-sm">{reply.author}</span>
           </div>
           <span className="text-sm text-gray-500">{reply.upvotes} upvotes</span>
         </div>

@@ -132,7 +132,7 @@ export default function Home() {
           <div className="w-full max-w-2xl">
             {!data && !isLoading && (
               <div className="text-center mb-12">
-                <h1 className="text-4xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-4xl font-bold text-gray-900 mb-4 bg-white bg-clip-text text-transparent">
                   Reddit Comment Extractor
                 </h1>
                 <p className="text-gray-600 text-lg max-w-md mx-auto">

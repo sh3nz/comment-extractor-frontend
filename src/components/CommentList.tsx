@@ -270,7 +270,16 @@ export default function CommentList({
       className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg  transition-all"
     >
       <Download size={16} />
-      <span className="text-gray-800"> Excel <span className="text-gray-500">|</span> JSON</span>
+      <span className="text-gray-800"> Excel </span>
+    </motion.button>
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={onDownload}
+      className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg  transition-all"
+    >
+      <Download size={16} />
+      <span className="text-gray-500"> JSON</span>
     </motion.button>
     <motion.button
       whileHover={{ scale: 1.02 }}
