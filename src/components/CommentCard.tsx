@@ -152,12 +152,12 @@ export default function CommentCard({
   return (
     
     <div
-  className="  bg-white  overflow-y-auto"
+  className="  bg-white  overflow-y-auto "
   onMouseEnter={() => setIsHovered(true)}
   onMouseLeave={() => setIsHovered(false)}
 >
   {/* Main Comment Section */}
-  <div className="p-6 space-y-4 font-lexend   transition-all duration-300">
+  <div className="p-4 space-y-4 font-lexend   transition-all duration-300">
   <div className="border-l-4 border-black pl-4">
     {/* Header */}
     <div className="flex items-center justify-between mb-4">
