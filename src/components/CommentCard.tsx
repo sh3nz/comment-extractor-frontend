@@ -157,33 +157,30 @@ export default function CommentCard({
   onMouseLeave={() => setIsHovered(false)}
 >
   {/* Main Comment Section */}
-  <div className="p-4 space-y-4">
-    <div className="border-l-4 border-black pl-4 ">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="font-semibold text-gray-800">{sequence}.{author}</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <span className="text-sm text-gray-500">{upvotes} upvotes</span>
-          {/* {isHovered && (
-              <button
-                onClick={() => handleCopy(text)}
-                className="p-1 hover:bg-gray-100 rounded transition-colors"
-                title="Copy comment"
-              >
-                <Copy size={16} className="text-gray-500" />
-              </button>
-            )} */}
-        </div>
+  <div className="p-6 space-y-4 font-lexend   transition-all duration-300">
+  <div className="border-l-4 border-black pl-4">
+    {/* Header */}
+    <div className="flex items-center justify-between mb-4">
+      {/* Author Info */}
+      <div className="flex items-center gap-4 p-3  rounded-lg shadow-sm hover:bg-gray-100 bg-[#F8FAFC] hover:shadow-md transition-all duration-300">
+        <span className="text-lg font-semibold text-gray-900">{sequence}.</span>
+        <span className="text-lg font-medium text-gray-800 ">{author}</span>
       </div>
 
-      {/* Comment Content */}
-      <div className="mt-2 text-gray-700 text-sm leading-relaxed">
-        <p className="whitespace-pre-wrap break-words">{text}</p>
+      {/* Upvotes */}
+      <div className="flex items-center gap-3">
+        <span className="text-sm text-gray-500">{upvotes} upvotes</span>
+        {/* Copy button could be added here */}
       </div>
     </div>
+
+    {/* Comment Content */}
+    <div className="mt-2 text-gray-700 text-sm leading-relaxed">
+      <p className="whitespace-pre-wrap break-words">{text}</p>
+    </div>
   </div>
+</div>
+
 
   {/* Reply Section */}
   {reply && (
