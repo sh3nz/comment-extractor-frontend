@@ -135,7 +135,7 @@ export default function Home() {
                 <h1 className="text-4xl font-bold text-gray-900 mb-4 bg-white bg-clip-text text-transparent">
                   Reddit Comment Extractor
                 </h1>
-                <p className="text-gray-600 text-lg max-w-md mx-auto">
+                <p className="text-gray-600 font-lexend font-semibold text-lg max-w-md mx-auto">
                   Extract and analyze comments from any Reddit post in seconds
                 </p>
               </div>
