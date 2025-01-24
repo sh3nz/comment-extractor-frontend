@@ -353,6 +353,8 @@ export default function CommentList({
               >
                 
                 <CommentCard
+
+                sequence={index + 1}
                   author={comment.author}
                   text={comment.text}
                   upvotes={comment.upvotes}

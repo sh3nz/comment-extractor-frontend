@@ -112,6 +112,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 
 interface CommentCardProps {
+  sequence: number;
   author: string;
   text: string;
   upvotes: number;
@@ -123,6 +124,7 @@ interface CommentCardProps {
 }
 
 export default function CommentCard({ 
+  sequence, 
   author, 
   text, 
   upvotes, 
@@ -160,7 +162,7 @@ export default function CommentCard({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="font-semibold text-gray-800">{author}</span>
+          <span className="font-semibold text-gray-800">{sequence}.{author}</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500">{upvotes} upvotes</span>
