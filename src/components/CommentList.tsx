@@ -324,7 +324,7 @@ export default function CommentList({
       </div> */}
 
       {/* Comments Section */}
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {areCommentsCollapsed ? (
           <motion.div 
             initial={{ opacity: 0, height: 0 }}
@@ -376,7 +376,34 @@ export default function CommentList({
           </motion.div>
           
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
+
+<AnimatePresence mode="wait">
+  <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="space-y-4"
+  >
+    {sortedComments.map((comment, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.1 }}
+      >
+        <CommentCard
+          sequence={index + 1}
+          author={comment.author}
+          text={comment.text}
+          upvotes={comment.upvotes}
+          reply={comment.reply}
+        />
+      </motion.div>
+    ))}
+  </motion.div>
+</AnimatePresence>
+
 
       {/* Comments status bar */}
       {!areCommentsCollapsed && comments.length > 0 && (

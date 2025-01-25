@@ -209,7 +209,7 @@ export default function CommentCard({
         <div className="mt-2 text-gray-600 text-sm leading-relaxed">
           <p className="whitespace-pre-wrap break-words">{reply.text}</p>
             </div>
-            <div className="absolute left-8 top-8 bottom-4 w-0.5 bg-black "></div>
+            <div className="absolute left-8 top-5 bottom-4 w-0.5 bg-black "></div>
       </div>
     </div>
   )}
