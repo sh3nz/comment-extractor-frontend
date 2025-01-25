@@ -41,6 +41,7 @@ export default function Home() {
         toast.success('Content copied to clipboard!');
       } catch (err) {
         toast.error('Failed to copy content');
+        console.log(err)
       }
     }
   };
@@ -114,7 +115,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-white font-lexend">
       <nav className="bg-white/70 backdrop-blur-md border-b border-gray-200 fixed w-full z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center gap-2">
@@ -131,10 +132,10 @@ export default function Home() {
           <div className="w-full max-w-2xl">
             {!data && !isLoading && (
               <div className="text-center mb-12">
-                <h1 className="text-4xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-4xl font-bold text-gray-900 mb-4 bg-white bg-clip-text text-transparent">
                   Reddit Comment Extractor
                 </h1>
-                <p className="text-gray-600 text-lg max-w-md mx-auto">
+                <p className="text-gray-600 font-lexend font-semibold text-lg max-w-md mx-auto">
                   Extract and analyze comments from any Reddit post in seconds
                 </p>
               </div>

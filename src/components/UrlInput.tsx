@@ -42,7 +42,7 @@ export default function UrlInput({ onSubmit, isLoading }: UrlInputProps) {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://www.reddit.com/r/subreddit/comments/..."
-            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all pr-12 group-hover:border-gray-300"
+            className="w-full px-4 py-3 bg-white border border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all pr-12 group-hover:border-gray-700 text-gray-800"
             required
           />
           <button
@@ -65,7 +65,7 @@ export default function UrlInput({ onSubmit, isLoading }: UrlInputProps) {
           id="limit"
           value={limit}
           onChange={(e) => setLimit(Number(e.target.value))}
-          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none cursor-pointer hover:border-gray-300 transition-all pr-12"
+          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-700 focus:border-gray-700 appearance-none cursor-pointer hover:border-gray-300 transition-all pr-12 text-gray-700"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
             backgroundRepeat: 'no-repeat',

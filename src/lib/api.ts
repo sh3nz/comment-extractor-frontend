@@ -32,7 +32,7 @@
 
 import { CommentResponse } from '@/types';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://comment-extractor-31b4ed03cc0f.herokuapp.com';  // Update with your Heroku URL
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://comment-extractor-31b4ed03cc0f.herokuapp.com';  
 
 export async function fetchComments(url: string, limit: number = 25, format: 'json' | 'text' = 'json'): Promise<CommentResponse> {
   try {
