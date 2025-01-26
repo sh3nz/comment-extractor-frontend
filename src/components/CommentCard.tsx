@@ -188,25 +188,28 @@ export default function CommentCard({
   {reply && (
     <div className="relative">
      
-      {/* Vertical Line */}
-      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-black "></div>
+      
       
       {/* Reply Header */}
       <div className="ml-8  p-4  rounded-lg ">
       <div className="mb-2">
     <span className="text-sm font-medium text-gray-800 ">Reply</span>
-  </div>
+      </div>
+    
+    
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
+          
             <span className="font-semibold text-gray-800 text-sm">{reply.author}</span>
           </div>
           <span className="text-sm text-gray-500">{reply.upvotes} upvotes</span>
         </div>
-
+        
         {/* Reply Content */}
         <div className="mt-2 text-gray-600 text-sm leading-relaxed">
           <p className="whitespace-pre-wrap break-words">{reply.text}</p>
-        </div>
+            </div>
+            <div className="absolute left-8 top-5 bottom-4 w-0.5 bg-black "></div>
       </div>
     </div>
   )}
