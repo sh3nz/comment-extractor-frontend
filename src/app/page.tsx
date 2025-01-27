@@ -269,14 +269,15 @@ export default function Home() {
             )}
 
             {data && !isLoading && (
-              <CommentList
-                comments={data.comments}
-                postTitle={data.post_title}
-                postAuthor={data.post_author}
-                onCopy={handleCopy}
-                onDownload={handleDownload}
-              />
-            )}
+  <CommentList
+    comments={data.comments}
+    postTitle={data.post_title}
+    postAuthor={data.post_author}
+    onCopy={handleCopy}
+    onDownloadExcel={handleExcelDownload}
+    onDownloadJson={handleJsonDownload}
+  />
+)}
           </div>
         </div>
       </main>
