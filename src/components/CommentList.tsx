@@ -204,12 +204,21 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// interface CommentListProps {
+//   comments: Comment[];
+//   postTitle: string;
+//   postAuthor: string;
+//   onCopy: () => void;
+//   onDownload: () => void;
+// }
+
 interface CommentListProps {
   comments: Comment[];
   postTitle: string;
   postAuthor: string;
   onCopy: () => void;
-  onDownload: () => void;
+  onDownloadExcel: () => void;
+  onDownloadJson: () => void;
 }
 
 export default function CommentList({
@@ -262,37 +271,35 @@ export default function CommentList({
   </div>
 
   {/* Action Buttons */}
-  <div className="flex gap-4">
+<div className="flex gap-4">
   <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      onClick={onDownload}
-      className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg  transition-all"
-    >
-      <Download size={16} />
-      <span className="text-gray-800"> Excel </span>
-    </motion.button>
-    <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      onClick={onDownload}
-      className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg  transition-all"
-    >
-      <Download size={16} />
-      <span className="text-gray-500"> JSON</span>
-    </motion.button>
-    <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      onClick={onCopy}
-      className="inline-flex items-center justify-center gap-2 px-4 py-1.5 text-sm font-medium text-gray-600 border  rounded-lg  transition-all"
-    >
-      <Copy size={16} />
-      Copy 
-    </motion.button>
-
-    
-  </div>
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    onClick={onDownloadExcel}  // Changed from onDownload
+    className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg transition-all"
+  >
+    <Download size={16} />
+    <span className="text-gray-800">Excel</span>
+  </motion.button>
+  <motion.button
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    onClick={onDownloadJson}   // New handler
+    className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg transition-all"
+  >
+    <Download size={16} />
+    <span className="text-gray-500">JSON</span>
+  </motion.button>
+  <motion.button
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    onClick={onCopy}
+    className="inline-flex items-center justify-center gap-2 px-4 py-1.5 text-sm font-medium text-gray-600 border rounded-lg transition-all"
+  >
+    <Copy size={16} />
+    Copy 
+  </motion.button>
+</div>
 </div>
 
       </div>
