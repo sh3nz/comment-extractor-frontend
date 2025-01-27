@@ -261,43 +261,42 @@ export default function CommentList({
   </div>
 
   {/* Post Title */}
-  <h1 className="text-2xl font-bold text-gray-900 leading-tight mb-3">
-            {postTitle}
-          </h1>
-
-  {/* Author Information */}
-  <div className="flex items-center gap-2 text-sm text-gray-600">
-    <User size={16} className="text-gray-400" />
-    <span className="font-medium">Posted by {postAuthor}</span>
-  </div>
+  <div className="p-6 bg-white rounded-xl space-y-4">
+  <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+{
+  postTitle
+}
+</h1>
+{/* Author Information */}
+<div className="flex items-center gap-2 text-sm text-gray-600">
+  <User size={16} className="text-gray-400" />
+  <span className="font-medium">Posted by {postAuthor}</span>
+</div>
+</div>
 
   {/* Action Buttons */}
 <div className="flex gap-4">
-  <motion.button
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-    onClick={onDownloadExcel}  // Changed from onDownload
-    className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg transition-all"
-  >
-    <Download size={16} />
-    <span className="text-gray-800">Excel</span>
-  </motion.button>
-  <motion.button
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-    onClick={onDownloadJson}   // New handler
-    className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg transition-all"
-  >
-    <Download size={16} />
-    <span className="text-gray-500">JSON</span>
-  </motion.button>
+<motion.div
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 border rounded-lg transition-all"
+      >
+        <Download size={14} />
+        <button onClick={onDownloadExcel} className="text-gray-800 hover:text-gray-900">
+          Excel
+        </button>
+        <span className="text-gray-300">|</span>
+        <button onClick={onDownloadJson} className="text-gray-600 hover:text-gray-900">
+          JSON
+        </button>
+      </motion.div>
   <motion.button
     whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
     onClick={onCopy}
     className="inline-flex items-center justify-center gap-2 px-4 py-1.5 text-sm font-medium text-gray-600 border rounded-lg transition-all"
   >
-    <Copy size={16} />
+    <Copy size={14} />
     Copy 
   </motion.button>
 </div>
@@ -425,6 +424,8 @@ export default function CommentList({
         </motion.div>
       )}
     </motion.div>
+    
     </div>
+    
   );
 }
