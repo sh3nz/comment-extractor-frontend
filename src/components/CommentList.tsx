@@ -261,7 +261,7 @@ export default function CommentList({
   </div>
 
   {/* Post Title */}
-  <div className="p-4 bg-white rounded-xl space-y-2">
+  <div className="p-2 bg-white rounded-xl space-y-3">
   <h1 className="text-2xl font-bold text-gray-900 leading-tight">
 {
   postTitle
@@ -272,7 +272,7 @@ export default function CommentList({
   <User size={16} className="text-gray-400" />
   <span className="font-medium">Posted by {postAuthor}</span>
 </div>
-</div>
+
 
   {/* Action Buttons */}
 <div className="flex gap-4">
@@ -299,6 +299,7 @@ export default function CommentList({
     <Copy size={14} />
     Copy 
   </motion.button>
+</div>
 </div>
 </div>
 
