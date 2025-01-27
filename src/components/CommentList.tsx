@@ -261,7 +261,7 @@ export default function CommentList({
   </div>
 
   {/* Post Title */}
-  <div className="p-4 bg-white rounded-xl space-y-3">
+  <div className="p-2 bg-white rounded-xl space-y-3">
   <h1 className="text-2xl font-bold text-gray-900 leading-tight">
 {
   postTitle
