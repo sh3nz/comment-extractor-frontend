@@ -64,7 +64,58 @@ export default function Home() {
     return text;
   };
 
-  const handleDownload = () => {
+  // const handleDownload = () => {
+  //   if (data) {
+  //     const workbook = XLSX.utils.book_new();
+      
+  //     const postInfo = [
+  //       ['Post Title', data.post_title],
+  //       ['Post Author', data.post_author],
+  //       ['Total Comments', data.comments.length.toString()]
+  //     ];
+  //     const postSheet = XLSX.utils.aoa_to_sheet(postInfo);
+  //     XLSX.utils.book_append_sheet(workbook, postSheet, 'Post Information');
+
+  //     const commentsData = data.comments.map((comment, index) => [
+  //       index + 1,
+  //       comment.author,
+  //       comment.text,
+  //       comment.upvotes,
+  //       comment.reply?.author || '',
+  //       comment.reply?.text || '',
+  //       comment.reply?.upvotes || ''
+  //     ]);
+
+  //     const commentsHeaders = [
+  //       'No.',
+  //       'Comment Author',
+  //       'Comment Text',
+  //       'Comment Upvotes',
+  //       'Reply Author',
+  //       'Reply Text',
+  //       'Reply Upvotes'
+  //     ];
+  //     commentsData.unshift(commentsHeaders);
+
+  //     const commentsSheet = XLSX.utils.aoa_to_sheet(commentsData);
+      
+  //     const colWidths = [5, 15, 50, 10, 15, 50, 10];
+  //     commentsSheet['!cols'] = colWidths.map(width => ({ width }));
+
+  //     XLSX.utils.book_append_sheet(workbook, commentsSheet, 'Comments');
+
+  //     try {
+  //       XLSX.writeFile(workbook, 'reddit-comments.xlsx');
+  //       toast.success('Excel file downloaded successfully!');
+  //     } catch (err) {
+  //       toast.error('Failed to download Excel file');
+  //       console.error('Download error:', err);
+  //     }
+  //   }
+  // };
+
+
+  const handleExcelDownload = () => {
     if (data) {
       const workbook = XLSX.utils.book_new();
       
@@ -109,6 +160,51 @@ export default function Home() {
         toast.success('Excel file downloaded successfully!');
       } catch (err) {
         toast.error('Failed to download Excel file');
+        console.error('Download error:', err);
+      }
+    }
+  };
+
+  const handleJsonDownload = () => {
+    if (data) {
+      try {
+        // Create a formatted JSON object
+        const jsonData = {
+          post_info: {
+            title: data.post_title,
+            author: data.post_author,
+            total_comments: data.comments.length
+          },
+          comments: data.comments.map((comment, index) => ({
+            number: index + 1,
+            author: comment.author,
+            text: comment.text,
+            upvotes: comment.upvotes,
+            reply: comment.reply ? {
+              author: comment.reply.author,
+              text: comment.reply.text,
+              upvotes: comment.reply.upvotes
+            } : null
+          }))
+        };
+
+        // Convert to string with proper formatting
+        const jsonString = JSON.stringify(jsonData, null, 2);
+        
+        // Create blob and download
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'reddit-comments.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        toast.success('JSON file downloaded successfully!');
+      } catch (err) {
+        toast.error('Failed to download JSON file');
         console.error('Download error:', err);
       }
     }
