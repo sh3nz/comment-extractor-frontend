@@ -226,7 +226,8 @@ export default function CommentList({
   postTitle,
   postAuthor,
   onCopy,
-  onDownload,
+  onDownloadExcel,
+  onDownloadJson,
 }: CommentListProps) {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [areCommentsCollapsed, setAreCommentsCollapsed] = useState(true);
