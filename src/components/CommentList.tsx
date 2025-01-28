@@ -216,6 +216,8 @@ interface CommentListProps {
   comments: Comment[];
   postTitle: string;
   postAuthor: string;
+  totalComments: number;
+  retrievedComments: number;
   onCopy: () => void;
   onDownloadExcel: () => void;
   onDownloadJson: () => void;
@@ -225,6 +227,8 @@ export default function CommentList({
   comments,
   postTitle,
   postAuthor,
+  totalComments,
+  retrievedComments,
   onCopy,
   onDownloadExcel,
   onDownloadJson,
@@ -256,7 +260,9 @@ export default function CommentList({
     </span>
     <div className="flex items-center gap-2 text-gray-600">
       <MessageCircle size={18} className="text-gray-400" />
-      <span className="text-sm">{comments.length} comments</span>
+      {/* <span className="text-sm">{comments.length} comments</span> */}
+      <span className="text-sm">{retrievedComments} comments</span>
+              
     </div>
   </div>
 
@@ -267,6 +273,11 @@ export default function CommentList({
   postTitle
 }
 </h1>
+<div className="flex items-center gap-2 text-gray-600">
+      <MessageCircle size={18} className="text-gray-400" />
+            <span className="text-sm">{totalComments} comments</span>
+              
+    </div>
 {/* Author Information */}
 <div className="flex items-center gap-2 text-sm text-gray-600">
   <User size={16} className="text-gray-400" />
@@ -405,6 +416,7 @@ export default function CommentList({
           author={comment.author}
           text={comment.text}
           upvotes={comment.upvotes}
+          created_at={comment.created_at}
           reply={comment.reply}
         />
       </motion.div>

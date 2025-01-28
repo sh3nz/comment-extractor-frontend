@@ -108,6 +108,7 @@
 'use client';
 
 import { Copy } from 'lucide-react';
+import { comment } from 'postcss';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -116,10 +117,12 @@ interface CommentCardProps {
   author: string;
   text: string;
   upvotes: number;
+  created_at: number;
   reply?: {
     author: string;
     text: string;
     upvotes: number;
+    created_at:number
   };
 }
 
@@ -128,26 +131,12 @@ export default function CommentCard({
   author, 
   text, 
   upvotes, 
-  reply 
+  reply ,
+  created_at
 }: CommentCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // const handleCopy = async (content: string) => {
-  //   try {
-  //     await navigator.clipboard.writeText(content);
-  //     toast.success('Comment copied to clipboard!');
-  //   } catch (err) {
-  //     toast.error('Failed to copy comment');
-  //   }
-  // };
-  // const handleCopy = async (content: string) => {
-  //   try {
-  //     await navigator.clipboard.writeText(content);
-  //     toast.success('Comment copied to clipboard!');
-  //   } catch (_error) {
-  //     toast.error('Failed to copy comment');
-  //   }
-  // };
+  
 
   return (
     
@@ -159,61 +148,62 @@ export default function CommentCard({
   {/* Main Comment Section */}
 
   <div className="border-l-4 border-black pl-4">
-  <div className=" space-y-4 font-lexend   transition-all duration-300">
-  
-    {/* Header */}
-    <div className="flex items-center justify-between mb-4">
-      {/* Author Info */}
-      <div className="flex items-center gap-4   rounded-lg   transition-all duration-300">
-        <span className="text-sm font-medium text-gray-900">{sequence}.</span>
-        <span className="text-sm font-bold text-gray-800 ">{author}</span>
-      </div>
-
-      {/* Upvotes */}
-      <div className="flex items-center gap-3">
-        <span className="text-sm text-gray-500">{upvotes} upvotes</span>
-        {/* Copy button could be added here */}
-      </div>
-    </div>
-
-    {/* Comment Content */}
-    <div className="mt-2 text-gray-700 text-sm leading-relaxed">
-      <p className="whitespace-pre-wrap break-words">{text}</p>
-    </div>
-  </div>
-
-
-
-  {/* Reply Section */}
-  {reply && (
-    <div className="relative">
-     
-      
-      
-      {/* Reply Header */}
-      <div className="ml-8  p-4  rounded-lg ">
-      <div className="mb-2">
-    <span className="text-sm font-medium text-gray-800 ">Reply</span>
-      </div>
-    
-    
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-          
-            <span className="font-semibold text-gray-800 text-sm">{reply.author}</span>
-          </div>
-          <span className="text-sm text-gray-500">{reply.upvotes} upvotes</span>
-        </div>
-        
-        {/* Reply Content */}
-        <div className="mt-2 text-gray-600 text-sm leading-relaxed">
-          <p className="whitespace-pre-wrap break-words">{reply.text}</p>
+        <div className="space-y-4 font-lexend transition-all duration-300">
+          {/* Header */}
+          <span className="text-sm text-gray-500 flex justify-end">{created_at}</span>
+          <div className="flex items-center justify-between mb-4">
+            {/* Author Info */}
+            <div className="flex items-center gap-4 rounded-lg transition-all duration-300">
+              <span className="text-sm font-medium text-gray-900">{sequence}.</span>
+              <span className="text-sm font-bold text-gray-800">{author}</span>
+              
             </div>
-            <div className="absolute left-8 top-5 bottom-4 w-0.5 bg-black "></div>
+
+
+            {/* Upvotes and Timestamp */}
+            <div className="flex items-center gap-6">
+            
+              <span className="text-sm text-gray-500">{upvotes} upvotes</span>
+              
+            </div>
+          </div>
+
+          {/* Comment Content */}
+          <div className="mt-2 text-gray-700 text-sm leading-relaxed">
+            <p className="whitespace-pre-wrap break-words">{text}</p>
+          </div>
+        </div>
+
+        {/* Reply Section */}
+        {reply && (
+          <div className="relative">
+            {/* Reply Header */}
+            <div className="ml-8 p-4 rounded-lg">
+              <div className="mb-2 flex justify-between">
+                <span className="text-sm font-medium text-gray-800">Reply</span>
+                <span className="text-sm text-gray-500 flex justify-end">{reply.created_at}</span>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-gray-800 text-sm">{reply.author}</span>
+                  
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-500">{reply.upvotes} upvotes</span>
+                  
+                </div>
+              </div>
+
+              {/* Reply Content */}
+              <div className="mt-2 text-gray-600 text-sm leading-relaxed">
+                <p className="whitespace-pre-wrap break-words">{reply.text}</p>
+              </div>
+              <div className="absolute left-8 top-5 bottom-4 w-0.5 bg-black"></div>
+            </div>
+          </div>
+        )}
       </div>
-    </div>
-  )}
-  </div>
 </div>
 
   );

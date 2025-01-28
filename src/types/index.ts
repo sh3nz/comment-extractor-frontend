@@ -26,14 +26,14 @@ export interface Reply {
   author: string;
   text: string;
   upvotes: number;
-  created_utc: number;
+  created_at: number;
 }
 
 export interface Comment {
   author: string;
   text: string;
   upvotes: number;
-  created_utc: number;
+  created_at: number;
   reply?: Reply;
 }
 
@@ -42,5 +42,6 @@ export interface CommentResponse {
   post_title: string;
   post_author: string;
   total_comments: number;
+  retrieved_comments:number
   text?: string;
 }
