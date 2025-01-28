@@ -215,7 +215,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface CommentListProps {
   comments: Comment[];
   postTitle: string;
+  postUrl:string;
   postAuthor: string;
+  totalComments: number;
+  retrievedComments: number;
   onCopy: () => void;
   onDownloadExcel: () => void;
   onDownloadJson: () => void;
@@ -224,7 +227,10 @@ interface CommentListProps {
 export default function CommentList({
   comments,
   postTitle,
+  postUrl,
   postAuthor,
+  totalComments,
+  retrievedComments,
   onCopy,
   onDownloadExcel,
   onDownloadJson,
@@ -256,17 +262,31 @@ export default function CommentList({
     </span>
     <div className="flex items-center gap-2 text-gray-600">
       <MessageCircle size={18} className="text-gray-400" />
-      <span className="text-sm">{comments.length} comments</span>
+      {/* <span className="text-sm">{comments.length} comments</span> */}
+      <span className="text-sm">{retrievedComments} comments</span>
+              
     </div>
   </div>
 
   {/* Post Title */}
   <div className="p-2 bg-white rounded-xl space-y-3">
-  <h1 className="text-2xl font-bold text-gray-900 leading-tight">
-{
-  postTitle
-}
-</h1>
+  {/* <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+{postTitle}
+</h1> */}
+<a 
+        href={postUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+      >
+        <h1 className="text-2xl font-semibold text-gray-900 leading-tight hover:underline ">
+          {postTitle}
+        </h1>
+      </a>
+<div className="flex items-center gap-2 text-gray-600">
+      <MessageCircle size={18} className="text-gray-400" />
+            <span className="text-sm">{totalComments} comments</span>
+              
+    </div>
 {/* Author Information */}
 <div className="flex items-center gap-2 text-sm text-gray-600">
   <User size={16} className="text-gray-400" />
@@ -405,6 +425,7 @@ export default function CommentList({
           author={comment.author}
           text={comment.text}
           upvotes={comment.upvotes}
+          created_at={comment.created_at}
           reply={comment.reply}
         />
       </motion.div>

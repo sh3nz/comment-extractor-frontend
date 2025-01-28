@@ -269,14 +269,26 @@ export default function Home() {
             )}
 
             {data && !isLoading && (
+  // <CommentList
+  //   comments={data.comments}
+  //   postTitle={data.post_title}
+  //   postAuthor={data.post_author}
+  //   onCopy={handleCopy}
+  //   onDownloadExcel={handleExcelDownload}
+  //   onDownloadJson={handleJsonDownload}
+  // />
   <CommentList
-    comments={data.comments}
-    postTitle={data.post_title}
-    postAuthor={data.post_author}
-    onCopy={handleCopy}
-    onDownloadExcel={handleExcelDownload}
-    onDownloadJson={handleJsonDownload}
-  />
+  comments={data.comments}
+  postUrl={data.post_url}
+  postTitle={data.post_title}
+  postAuthor={data.post_author}
+  totalComments={data.total_comments}
+  retrievedComments={data.retrieved_comments}
+  onCopy={handleCopy}
+  onDownloadExcel={handleExcelDownload}
+  onDownloadJson={handleJsonDownload}
+/>
+
 )}
           </div>
         </div>
