@@ -269,9 +269,7 @@ export default function CommentList({
   {/* Post Title */}
   <div className="p-2 bg-white rounded-xl space-y-3">
   <h1 className="text-2xl font-bold text-gray-900 leading-tight">
-{
-  postTitle
-}
+{postTitle}
 </h1>
 <div className="flex items-center gap-2 text-gray-600">
       <MessageCircle size={18} className="text-gray-400" />
