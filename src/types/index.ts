@@ -40,6 +40,7 @@ export interface Comment {
 export interface CommentResponse {
   comments: Comment[];
   post_title: string;
+  post_url:string
   post_author: string;
   total_comments: number;
   retrieved_comments:number

@@ -279,6 +279,7 @@ export default function Home() {
   // />
   <CommentList
   comments={data.comments}
+  postUrl={data.post_url}
   postTitle={data.post_title}
   postAuthor={data.post_author}
   totalComments={data.total_comments}

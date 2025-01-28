@@ -215,6 +215,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface CommentListProps {
   comments: Comment[];
   postTitle: string;
+  postUrl:string;
   postAuthor: string;
   totalComments: number;
   retrievedComments: number;
@@ -226,6 +227,7 @@ interface CommentListProps {
 export default function CommentList({
   comments,
   postTitle,
+  postUrl,
   postAuthor,
   totalComments,
   retrievedComments,
@@ -268,9 +270,18 @@ export default function CommentList({
 
   {/* Post Title */}
   <div className="p-2 bg-white rounded-xl space-y-3">
-  <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+  {/* <h1 className="text-2xl font-bold text-gray-900 leading-tight">
 {postTitle}
-</h1>
+</h1> */}
+<a 
+        href={postUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+      >
+        <h1 className="text-2xl font-semibold text-gray-900 leading-tight hover:underline ">
+          {postTitle}
+        </h1>
+      </a>
 <div className="flex items-center gap-2 text-gray-600">
       <MessageCircle size={18} className="text-gray-400" />
             <span className="text-sm">{totalComments} comments</span>
