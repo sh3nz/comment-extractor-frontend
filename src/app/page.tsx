@@ -278,11 +278,14 @@ export default function Home() {
   //   onDownloadJson={handleJsonDownload}
   // />
   <CommentList
+
   comments={data.comments}
   postUrl={data.post_url}
   postTitle={data.post_title}
   postAuthor={data.post_author}
+  postAuthorUrl = {data.post_author_url}
   totalComments={data.total_comments}
+  retrievedReplies={data.retrieved_replies}
   retrievedComments={data.retrieved_comments}
   onCopy={handleCopy}
   onDownloadExcel={handleExcelDownload}

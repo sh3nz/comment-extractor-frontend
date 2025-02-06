@@ -109,12 +109,13 @@
 
 import { Copy } from 'lucide-react';
 import { comment } from 'postcss';
-import { useState } from 'react';
+import { AnyActionArg, useState } from 'react';
 import { toast } from 'sonner';
 
 interface CommentCardProps {
   sequence: number;
   author: string;
+  postAuthorUrl: string;
   text: string;
   upvotes: number;
   created_at: number;
@@ -129,6 +130,7 @@ interface CommentCardProps {
 export default function CommentCard({ 
   sequence, 
   author, 
+  postAuthorUrl,
   text, 
   upvotes, 
   reply ,
@@ -155,8 +157,11 @@ export default function CommentCard({
             {/* Author Info */}
             <div className="flex items-center gap-4 rounded-lg transition-all duration-300">
               <span className="text-sm font-medium text-gray-900">{sequence}.</span>
-              <span className="text-sm font-bold text-gray-800">{author}</span>
-              
+              {/* <span className="text-sm font-bold text-gray-800">{author}</span> */}
+              <a href={postAuthorUrl} target="_blank" rel="noopener noreferrer">
+                <span className="text-sm font-bold text-gray-800">{author}</span>
+              </a>
+
             </div>
 
 
