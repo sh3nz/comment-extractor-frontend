@@ -297,7 +297,11 @@ export default function CommentList({
 {/* Author Information */}
 <div className="flex items-center gap-2 text-sm text-gray-600">
   <User size={16} className="text-gray-400" />
+  {/* <span className="font-medium">Posted by {postAuthor}</span> */}
+  <a href={postAuthorUrl} target="_blank" rel="noopener noreferrer">
   <span className="font-medium">Posted by {postAuthor}</span>
+</a>
+
 </div>
 
 
@@ -429,7 +433,7 @@ export default function CommentList({
       >
         <CommentCard
           sequence={index + 1}
-          postAuthorUrl={comment.post_author_url}
+          // postAuthorUrl={comment.post_author_url}
           author={comment.author}
           text={comment.text}
           upvotes={comment.upvotes}
