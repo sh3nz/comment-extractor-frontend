@@ -299,8 +299,9 @@ export default function CommentList({
   <User size={16} className="text-gray-400" />
   {/* <span className="font-medium">Posted by {postAuthor}</span> */}
   <a href={postAuthorUrl} target="_blank" rel="noopener noreferrer">
-  <span className="font-medium">Posted by {postAuthor}</span>
+  <span className="font-medium hover:underline">Posted by {postAuthor}</span>
 </a>
+
 
 </div>
 
