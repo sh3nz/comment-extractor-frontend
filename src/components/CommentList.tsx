@@ -269,7 +269,7 @@ export default function CommentList({
       <MessageCircle size={20} className="text-gray-400" />
       {/* <span className="text-sm">{comments.length} comments</span> */}
       <span className="text-sm">Top Level Comments :</span>
-      <span className="text-sm font-semibold"> {retrievedComments} comments</span>
+      <span className="text-sm font-semibold"> {totalComments}    comments</span>
               
     </div>
   </div>
@@ -291,7 +291,7 @@ export default function CommentList({
       </a>
 <div className="flex items-center gap-2 text-gray-600">
       <MessageCircle size={18} className="text-gray-400" />
-            <span className="text-sm">{totalComments} comments / {retrievedReplies} replies</span>
+            <span className="text-sm">{retrievedComments} comments / {retrievedReplies} replies</span>
               
     </div>
 {/* Author Information */}
