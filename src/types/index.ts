@@ -31,6 +31,7 @@ export interface Reply {
 
 export interface Comment {
   author: string;
+  post_author_url:string;
   text: string;
   upvotes: number;
   created_at: number;
@@ -40,7 +41,9 @@ export interface Comment {
 export interface CommentResponse {
   comments: Comment[];
   post_title: string;
-  post_url:string
+  retrieved_replies: string;
+  post_url:string;
+  post_author_url:string;
   post_author: string;
   total_comments: number;
   retrieved_comments:number

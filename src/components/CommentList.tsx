@@ -216,9 +216,11 @@ interface CommentListProps {
   comments: Comment[];
   postTitle: string;
   postUrl:string;
+  postAuthorUrl:string
   postAuthor: string;
   totalComments: number;
   retrievedComments: number;
+  retrievedReplies: string;
   onCopy: () => void;
   onDownloadExcel: () => void;
   onDownloadJson: () => void;
@@ -228,9 +230,11 @@ export default function CommentList({
   comments,
   postTitle,
   postUrl,
+  postAuthorUrl,
   postAuthor,
   totalComments,
   retrievedComments,
+  retrievedReplies,
   onCopy,
   onDownloadExcel,
   onDownloadJson,
@@ -257,13 +261,15 @@ export default function CommentList({
       <div className="p-6 bg-white  rounded-xl  space-y-6">
   {/* Header Section */}
   <div className="flex items-center justify-between">
-    <span className="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+    {/* <span className="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
       Original Post
-    </span>
-    <div className="flex items-center gap-2 text-gray-600">
-      <MessageCircle size={18} className="text-gray-400" />
+    </span> */}
+    <div className="flex items-end justify-end gap-2 text-gray-600">
+    
+      <MessageCircle size={20} className="text-gray-400" />
       {/* <span className="text-sm">{comments.length} comments</span> */}
-      <span className="text-sm">{retrievedComments} comments</span>
+      <span className="text-sm">Top Level Comments :</span>
+      <span className="text-sm font-semibold"> {retrievedComments} comments</span>
               
     </div>
   </div>
@@ -279,18 +285,24 @@ export default function CommentList({
         rel="noopener noreferrer" 
       >
         <h1 className="text-2xl font-semibold text-gray-900 leading-tight hover:underline ">
-          {postTitle}
+          {/* {postTitle} */}
+          Original Post
         </h1>
       </a>
 <div className="flex items-center gap-2 text-gray-600">
       <MessageCircle size={18} className="text-gray-400" />
-            <span className="text-sm">{totalComments} comments</span>
+            <span className="text-sm">{totalComments} comments / {retrievedReplies} replies</span>
               
     </div>
 {/* Author Information */}
 <div className="flex items-center gap-2 text-sm text-gray-600">
   <User size={16} className="text-gray-400" />
-  <span className="font-medium">Posted by {postAuthor}</span>
+  {/* <span className="font-medium">Posted by {postAuthor}</span> */}
+  <a href={postAuthorUrl} target="_blank" rel="noopener noreferrer">
+  <span className="font-medium hover:underline">Posted by {postAuthor}</span>
+</a>
+
+
 </div>
 
 
@@ -422,6 +434,7 @@ export default function CommentList({
       >
         <CommentCard
           sequence={index + 1}
+          // postAuthorUrl={comment.post_author_url}
           author={comment.author}
           text={comment.text}
           upvotes={comment.upvotes}

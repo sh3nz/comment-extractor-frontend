@@ -109,7 +109,7 @@
 
 import { Copy } from 'lucide-react';
 import { comment } from 'postcss';
-import { useState } from 'react';
+import { AnyActionArg, useState } from 'react';
 import { toast } from 'sonner';
 
 interface CommentCardProps {
@@ -156,7 +156,7 @@ export default function CommentCard({
             <div className="flex items-center gap-4 rounded-lg transition-all duration-300">
               <span className="text-sm font-medium text-gray-900">{sequence}.</span>
               <span className="text-sm font-bold text-gray-800">{author}</span>
-              
+
             </div>
 
 
