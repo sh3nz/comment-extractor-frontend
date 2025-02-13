@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Reddit Comment Extractor',
-  description: 'Extract and analyze Reddit comments easily',
+  title: 'Reddit Threat Extractor',
+  description: 'Extract Reddit threads instantly',
 };
 
 export default function RootLayout({
