@@ -232,7 +232,7 @@ export default function Home() {
                   Reddit Comment Extractor
                 </h1>
                 <p className="text-gray-600 font-lexend font-semibold text-lg max-w-md mx-auto">
-                  Extract and analyze comments from any Reddit post in seconds
+                  Reddit threads, instantly extracted.
                 </p>
               </div>
             )}
